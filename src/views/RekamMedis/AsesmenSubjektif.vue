@@ -1,6 +1,7 @@
 <template>
     <div>
         <!-- {{test1}} -->
+        perubahan data
         <CRow>
             <CCol>
                 <CCard>
