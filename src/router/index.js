@@ -135,7 +135,7 @@ function configRoutes () {
                 },
                 {
                   path :'objektif',
-                  name : 'Assement Awal-Subjektif',
+                  name : 'Assement Awal-Objektif',
                   component : AsesmenObjektif
                 },
               ]

@@ -23,7 +23,7 @@
 export default {
 data(){
     return {
-        idRekamMedis
+        idRekamMedis : this.$route.params.idRekamMedis
     }
 }
 }
