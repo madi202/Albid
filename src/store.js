@@ -208,7 +208,7 @@ export default new Vuex.Store({
     }, params) {
       return new Promise((resolve, reject) => {
         let param = params
-        console.log(param)
+        // console.log(param)
         var config = {
           method: 'get',
           url: '/api/pasien?_id=' + param
@@ -231,7 +231,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
 
         let idPasien = params
-        console.log(params)
+        // console.log(params)
         var config = {
           method: 'get',
           url: '/api/rekamMedis/list?idPasien=' + idPasien
@@ -254,7 +254,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         var config = {
           method: 'post',
-          url: '/api/rekamMedis',
+          url: 'api/rekamMedis',
           data: params
         };
 
@@ -273,6 +273,48 @@ export default new Vuex.Store({
       })
     },
 
+    getAssesmenSubjektif({
+      commit
+    }, params) {
+      return new Promise((resolve, reject) => {
+        let param = params
+        var config = {
+          method: 'get',
+          url: 'api/asesmenAwal?idRekamMedis=' + param
+        };
+        axios(config)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    UpdateAssesmenSubjektif({commit},params) {
+      return new Promise((resolve, reject) => {
+        console.log('masuk sini buat update')
+        console.log(params)
+       
+        // comsole.log(idRekamMedis)
+        let param = params
+        var config = {
+          method: 'put',
+          url: '/api/asesmenAwal/subjektif?idRekamMedis=' + param.params,
+          data : param.data
+        };
+        axios(config)
+          .then(response => {
+            console.log(response)
+            resolve(response)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+
+    
    
     updateANC(params, data) {
       return new Promise((resolve, reject) => {
@@ -285,7 +327,6 @@ export default new Vuex.Store({
 
         axios(config)
         .then(resp => {
-          console.log('ini id rekam medis :' + resp.data.docId);
           resolve(resp)
 
         })

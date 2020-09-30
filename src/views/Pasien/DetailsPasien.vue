@@ -185,8 +185,17 @@
     methods: {
       checkRoute: function (id, message) {
         switch (message) {
-          case 'INC':
-            this.$router.push('/Pasien/RekamMedis/' + id)
+          case 'SOAP I':
+           this.$router.push('/Pasien/RekamMedisINC/' + id + '/SOAP1')
+            break;
+            case 'SOAP II':
+            this.$router.push('/Pasien/RekamMedisINC/' + id + '/SOAP2')
+            break;
+            case 'SOAP III':
+            this.$router.push('/Pasien/RekamMedisINC/' + id + '/SOAP3')
+            break;
+            case 'SOAP IV':
+            this.$router.push('/Pasien/RekamMedisINC/' + id + '/SOAP4')
             break;
           case 'PNC':
             console.log('masuk PNC')
@@ -198,7 +207,7 @@
             this.$router.push('/Pasien/RekamMedisAWAL/' + id)
             break;
           default:
-            console.log('masuk rahmadi')
+            console.log('not found')
             break;
         }
       }

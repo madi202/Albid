@@ -6,7 +6,7 @@ import router from './router'
 import CoreuiVue from '@coreui/vue'
 import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store'
-
+import Multiselect from 'vue-multiselect'
 Vue.config.performance = true
 Vue.use(CoreuiVue)
 Vue.prototype.$log = console.log.bind(console)
@@ -21,6 +21,7 @@ new Vue({
   router,
   store,
   icons,
+  Multiselect,
   template: '<App/>',
   components: {
     App

@@ -23,18 +23,22 @@ import RekamMedisAssesmentAwal from '../views/RekamMedis/AssesmentAwal'
 import AsesmenSubjektif from '../views/RekamMedis/AsesmenSubjektif'
 import AsesmenObjektif from '../views/RekamMedis/AsesmenObjektif'
 
+import Soap1 from '../views/RekamMedis/INC/SOAP1'
+import Soap2 from '../views/RekamMedis/INC/SOAP2'
+import Soap3 from '../views/RekamMedis/INC/SOAP3'
+import Soap4 from '../views/RekamMedis/INC/SOAP4'
+// Views - Pages
+const Page404 = () => import('@/views/pages/Page404')
+const Page500 = () => import('@/views/pages/Page500')
+const Login = () => import('@/views/pages/Login')
+const Register = () => import('@/views/pages/Register')
 
 // Users
 import test from '../views/test'
 
 Vue.use(Router);
 
-// export default new Router({
-//   mode: 'hash', // https://router.vuejs.org/api/#mode
-//   linkActiveClass: 'active',
-//   scrollBehavior: () => ({ y: 0 }),
-//   routes: configRoutes()
-// })
+
 
 const router = new Router({
   mode: 'hash', // https://router.vuejs.org/api/#mode
@@ -137,21 +141,80 @@ function configRoutes () {
               ]
             },
             {
+              path : 'RekamMedisINC/:idRekamMedis',
+              name : 'Rekam Medis Asessment Awal',
+              component : {
+                render (c) { return c('router-view') }
+              },
+              children : [
+                {
+                  path :'SOAP1',
+                  name : 'Intranatal Care_ Kala 1',
+                  component : Soap1
+                },
+                {
+                  path :'SOAP2',
+                  name : 'Intranatal Care_ Kala 2',
+                  component : Soap2
+                },
+                {
+                  path :'SOAP3',
+                  name : 'Intranatal Care_ Kala 3',
+                  component : Soap3
+                },
+                {
+                  path :'SOAP4',
+                  name : 'Intranatal Care_ Kala 4',
+                  component : Soap4
+                },
+              ]
+            },
+            
+            {
               path : 'RegisterMedis/:idPasien',
               name : 'Tambahkan Rekam Medis',
               component : registerMedis
             }
-         
+
           ]
         },
-       
 
- 
+
+
 
 
       ]
     },
-
+    {
+      path: '/pages',
+      redirect: '/pages/404',
+      name: 'Pages',
+      component: {
+        render (c) { return c('router-view') }
+      },
+      children: [
+        {
+          path: '404',
+          name: 'Page404',
+          component: Page404
+        },
+        {
+          path: '500',
+          name: 'Page500',
+          component: Page500
+        },
+        {
+          path: 'login',
+          name: 'Login',
+          component: Login
+        },
+        {
+          path: 'register',
+          name: 'Register',
+          component: Register
+        }
+      ]
+    }
   ]
 }
 
