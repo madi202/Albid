@@ -41,7 +41,7 @@ Vue.use(Router);
 
 
 const router = new Router({
-  mode: 'hash', // https://router.vuejs.org/api/#mode
+  // mode: 'history', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'active',
   scrollBehavior: () => ({ y: 0 }),
   routes: configRoutes()
@@ -142,7 +142,7 @@ function configRoutes () {
             },
             {
               path : 'RekamMedisINC/:idRekamMedis',
-              name : 'Rekam Medis Asessment Awal',
+              name : 'Rekam Medis Intranatal Care',
               component : {
                 render (c) { return c('router-view') }
               },

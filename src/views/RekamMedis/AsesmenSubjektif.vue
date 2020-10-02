@@ -396,7 +396,7 @@
                             <!-- submit data -->
                             <CRow>
                                 <CCol col="6" class="text-left">
-                                    <CButton type="submit" color="primary" class="px-4" v-on:click="updateData()">submit
+                                    <CButton color="primary" class="px-4" v-on:click="updateData">submit
                                     </CButton>
                                 </CCol>
 
@@ -424,10 +424,9 @@
             // Object.assign(this.riwayatPenyakit, this.dummyPenyakit)
             this.$store.dispatch("getAssesmenSubjektif", this.$route.params.idRekamMedis).then(res => {
                     console.log('ini rekam',this.$route.params.idRekamMedis)
-                    console.log(res.data.doc.subjektif)
+                    // console.log(res.data.doc.subjektif)
                 Object.assign(this.subjektif, res.data.doc.subjektif)
-                console.log(this.subjektif)
-                // console.log(this.res.data.doc.subjektif.riwayatPenyakit)
+                this.idRekamMedis = res.data.doc.idRekamMedis
 
             })
         },
@@ -443,6 +442,7 @@
         },
         data() {
             return {
+                idRekamMedis : undefined,
                 //Options
                 optGyne: ['INFERTITLITAS', 'INFEKSI VIRUS', 'PMS', 'CERVICITIS AKUT', 'CERVICITIS KRONIS', 'TIDAK ADA'],
                 optPenyakit: ['TBC'],
@@ -635,15 +635,15 @@
                 }
                 // console.log(this.$route.params.idRekamMedis)
                let temp = {
-                   params : this.$route.params.idRekamMedis,
+                   params : this.idRekamMedis,
                    data : data
                }
                 // console.log(data)
                 // console.log('masuk sini')
                 this.$store.dispatch('UpdateAssesmenSubjektif',temp)
                     .then(resp => 
-                        console.log(resp)
-                    // this.$router.push('/Pasien/ListPasien')
+                        console.log(resp),
+                    this.$router.push('/Pasien/ListPasien')
                     )
                     .catch(err => console.log(err))
             },

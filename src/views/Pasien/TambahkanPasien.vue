@@ -134,10 +134,10 @@
         },
         pekerjaan: undefined,
         alamat: {
-          provinsi: undefined,
-          kota: undefined,
-          kecamatan: undefined,
-          kelurahan: undefined,
+          provinsi: this.provinces,
+          kota: this.city,
+          kecamatan: this.district,
+          kelurahan: this.villages,
           alamatJalan: undefined
         }
 

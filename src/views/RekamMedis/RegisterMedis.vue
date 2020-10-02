@@ -116,7 +116,7 @@
 
         }
         this.$store.dispatch('registermedis', data)
-          .then(() => this.$router.push('/Pasien/Details/'+this.register.idPasien))
+          .then(res => console.log('ini id rekam medis habis create',res), this.$router.push('/Pasien/Details/'+this.register.idPasien))
           .catch(err => console.log(err))
       },
     }

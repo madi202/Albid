@@ -67,10 +67,6 @@
 
       }
     }, 
-    watch: {
-    // call again the method if the route changes
-    '$route': 'fetchData'
-  },
     created: function () {
       this.loading = true,
       this.$store.dispatch("getpasienList").then(res => {

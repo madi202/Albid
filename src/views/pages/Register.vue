@@ -57,7 +57,7 @@
             >
               <CCardBody>
                 <h2>Sign In</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p></p>
             <router-link to="login">    <CButton
                   color="light"
                   variant="outline"

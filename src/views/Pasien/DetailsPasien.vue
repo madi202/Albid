@@ -2,8 +2,7 @@
   <div>
     <div class="identitaspasien row">
       <div class="col-sm-10">
-
-
+          
         <CCard>
           <CCardHeader>
             Identitas Pasien

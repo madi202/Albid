@@ -2,18 +2,18 @@
 
 
 .box {
-    width: 300px;
+    width: 200px;
     margin: 25px 0;
     display: flex;
     align-items: center;
     user-select: none;
 
     label {
-        font-size: 26px;
+        font-size: 16px;
         color: #4D4D4D;
         position: absolute;
         z-index: 10;
-        padding-left: 50px;
+        padding-left: 30px;
     }
 
     input {
@@ -36,8 +36,8 @@
     }
 
     .check {
-        width: 30px;
-        height: 30px; 
+        width: 20px;
+        height: 20px; 
         display: flex;
         justify-content: center;
         align-items: center;

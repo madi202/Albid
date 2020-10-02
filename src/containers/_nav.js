@@ -14,12 +14,12 @@ export default [
         to: '/UserProfil',
         icon: 'cil-user',
       },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'Test Page',
-        to: '/test',
-        icon: 'cil-user',
-      },
+      // {
+      //   _name: 'CSidebarNavItem',
+      //   name: 'Test Page',
+      //   to: '/test',
+      //   icon: 'cil-user',
+      // },
       //bagian ke 2
       {
         _name: 'CSidebarNavTitle',

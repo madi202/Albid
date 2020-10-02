@@ -191,13 +191,10 @@ export default new Vuex.Store({
         };
         axios(config)
           .then(response => {
-            // console.log(response.data);
-            // console.log('masuk sini');
             resolve(response)
 
           })
           .catch(err => {
-
             reject(err)
           })
       })
@@ -315,28 +312,45 @@ export default new Vuex.Store({
     },
 
     
-   
-    updateANC(params, data) {
+    getANC({
+      commit
+    }, params) {
       return new Promise((resolve, reject) => {
-        let idRekamMedis = this.params
+        let param = params
+        var config = {
+          method: 'get',
+          url: `api/anc?idRekamMedis=${param}`
+         
+        };
+        axios(config)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    UpdateANC({commit},params) {
+      return new Promise((resolve, reject) => {
+        console.log('masuk sini buat update')
+       
+        // comsole.log(idRekamMedis)
+        let param = params
         var config = {
           method: 'put',
-          url: '/api/anc?idRekamMedis='+idRekamMedis,
-          data: data
+          url: `/api/anc?idRekamMedis=${param.idRekamMedis}`,
+          data : param
         };
-
         axios(config)
-        .then(resp => {
-          resolve(resp)
-
-        })
-        .catch(err => {
-          commit('auth_error')
-          reject(err)
-        })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(err => {
+            reject(err)
+          })
       })
-    }
-
+    },
 
 
 
