@@ -17,14 +17,14 @@
             </div>
         </CCardHeader>
         <CCardBody>
-          <table class="table table-hover">
+          <table class="table table-hover table-responsive">
             <thead>
               <tr>
-                <th scope="col">Nik</th>
-                <th scope="col">Nama Lengkap</th>
-                <th scope="col">Kontak</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">action</th>
+                <th scope="col" width="20">Nik</th>
+                <th scope="col" width="20%">Nama Lengkap</th>
+                <th scope="col" width="20%">Kontak</th>
+                <th scope="col" width="20%">Alamat</th>
+                <th scope="col" width="20%">action</th>
               </tr>
             </thead>
             <tbody>

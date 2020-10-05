@@ -12,6 +12,7 @@
                   <CInput
                     placeholder="Username"
                     v-model="noHP"
+                    type="number"
                   >
                     <template #prepend-content><CIcon name="cil-user"/></template>
                   </CInput>

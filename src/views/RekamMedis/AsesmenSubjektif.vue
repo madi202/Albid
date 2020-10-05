@@ -241,7 +241,7 @@
                                 <div class="card-body">
                                     <table class="table table-bordered table-responsive">
                                         <thead class="thead-light">
-                                            <tr style="cemter">
+                                            <tr style="center">
                                                 <th width="">#</th>
                                                 <th width="15%">Tgl Persalinan</th>
                                                 <th width="15%">Tempat Persalinan</th>

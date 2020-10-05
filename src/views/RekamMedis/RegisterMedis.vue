@@ -11,7 +11,7 @@
             <form @submit.prevent="registermedis">
               <CRow>
                 <CCol sm="6">
-                  <CInput type="date" v-model="register.tanggaKunjungan" label="Tanggal Kunjungan" />
+                  <CInput type="date" v-model="register.tanggaKunjungan" label="Tanggal Kunjungan" required />
                 </CCol>
                 <CCol sm="6">
                     <label for="">Hubungan Penanggung Jawab</label>
@@ -25,7 +25,7 @@
               </CRow>
               <CRow>
                 <CCol sm="6">
-                  <CInput v-model="register.nama" label="Nama Penanggung Jawab" type="text" />
+                  <CInput v-model="register.nama" label="Nama Penanggung Jawab" type="text"  required/>
                 </CCol>
                 <CCol sm="6">
                      <label for="">Perujuk</label>
@@ -40,12 +40,12 @@
 
               <CRow>
                 <CCol sm="6">
-                  <CInput v-model="register.noHP" label="Kontak Penanggung Jawab" type="text" />
+                  <CInput v-model="register.noHP" label="Kontak Penanggung Jawab" type="text" required />
                 </CCol>
 
                 <CCol sm="6">
                   <label for="">Jenis Pemeriksaan</label>
-                  <select class="form-control" v-model="register.jenisPemeriksaan">
+                  <select class="form-control" v-model="register.jenisPemeriksaan" required>
                     <option v-for="option in OptPemeriksaan" :key="option.id">
                       {{ option.value }}
                     </option>

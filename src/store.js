@@ -86,7 +86,6 @@ export default new Vuex.Store({
           .then(resp => {
             const token = resp.data.doc._id
             const userId = resp.data.doc.userId
-            console.log(userId);
             localStorage.setItem('token', token)
             localStorage.setItem('userId', userId)
             axios.defaults.headers.common['session-id'] = token

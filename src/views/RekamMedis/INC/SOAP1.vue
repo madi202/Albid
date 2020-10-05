@@ -5,95 +5,126 @@
         <CCard>
           <CCardHeader>
 
-            <strong>Tambahkan pasien </strong>
+            <strong>SOAP I </strong>
           </CCardHeader>
           <CCardBody>
-            <form @submit.prevent="tambahpasien">
-              <CRow>
-                <CCol sm="6">
-                  <CInput v-model="nama" label="Nama Lengkap" placeholder="Enter your name" />
-                </CCol>
-                <CCol sm="6">
-                  <CInput v-model="tanggalLahir" label="Tanggal Lahir" type="date" placeholder="Enter your name" />
-                </CCol>
+            <form @submit.prevent="updateSoapI">
+              <div class="card">
+                <div class="card-header">Waktu Pemeriksaan</div>
+                <div class="card-body">
+                  <CRow>
+                    <CCol sm="3">
+                      <CInput v-model="temp" label="Tanggal Pemeriksaan" type="date" placeholder="" />
+                    </CCol>
+                    <CCol sm="3">
+                      <CInput v-model="temp" label="Waktu Pemeriksaan (jam)" placeholder="0-23" type="number" min="1"
+                        max="23" step="1" />
+                    </CCol>
+                    <CCol sm="3">
+                      <CInput v-model="temp" label="Waktu Pemeriksaan (Menit)" placeholder="0-59" type="number" min="0"
+                        max="59" step="1" />
+                    </CCol>
+                  </CRow>
+                </div>
+              </div>
 
-              </CRow>
-              <CRow>
-                <CCol sm="6">
-                  <CInput v-model="nik" label="NIK" placeholder="NIK" />
-                </CCol>
-                <CCol sm="6">
-                  <CInput v-model="kontak.noHP" label="Nomor Kontak" placeholder="Nomor Kontak" />
-                </CCol>
+              <div class="card">
+                <div class="card-header">Pemeriksaan</div>
+                <div class="card-body">
 
-              </CRow>
-
-              <CRow>
-                <CCol sm="6">
-                  <CInput v-model="alamat.alamatJalan" label="Alamat" type="text" placeholder="Alamat Jalan" />
-                </CCol>
-
-                <CCol sm="6">
-                  <CInput v-model="pekerjaan" label="Pekerjaan" type="text" placeholder="Pekerjaan" />
-                </CCol>
-
-              </CRow>
-              <CRow>
-                <CCol sm="4">
-                  <div class="form-group">
-                    <label for="">Propinsi</label>
-                    <select class="form-control" v-model="province" @change="getCities">
-                      <option value="">Pilih</option>
-                      <option v-for="province in provinces" v-bind:key="province.id"
-                        v-bind:value="{id:province.id,name:province.name}">{{province.name}}</option>
-                    </select>
+                  <CRow>
+                    <CCol>
+                      <CTextarea type="text" label="Keluhan Utama" v-model="temp" />
+                    </CCol>
+                  </CRow>
+                  <CRow>
+                    <CCol sm="12">
+                      <CTextarea type="text" label="Kesadaran" v-model="temp" />
+                    </CCol>
+                  </CRow>
+                  <div class="card">
+                    <div class="card-header">Tanda-Tanda Vital</div>
+                    <div class="card-body">
+                      <CRow>
+                        <CCol sm="3">
+                          <CInput type="text" label="Tekanan Darah (sistolik)" v-model="temp" />
+                        </CCol>
+                        <CCol sm="3">
+                          <CInput type="text" label="Tekanan Darah (diastolik)" v-model="temp" />
+                        </CCol>
+                        <CCol sm="2">
+                          <CInput type="text" label="Nadi (n/menit)" v-model="temp" />
+                        </CCol>
+                        <CCol sm="2">
+                          <CInput type="text" label="Respirasi (n/menit)" v-model="temp" />
+                        </CCol>
+                        <CCol sm="2">
+                          <CInput type="number" min="1" step="1" label="Suhu (Celcius)" v-model="temp" />
+                        </CCol>
+                        <CCol sm="2">
+                          <CInput type="number" min="1" step="1" label="Detak Jantung Janin" v-model="temp" />
+                        </CCol>
+                      </CRow>
+                    </div>
                   </div>
-                </CCol>
-                <CCol sm="4">
-                  <div class="form-group">
-                    <label for="">Kota/Kabupaten</label>
-                    <select class="form-control" v-model="city" @change="getDistricts">
-                      <option value="">Pilih</option>
-                      <option v-for="city in cities" v-bind:key="city.id" v-bind:value="{id:city.id,name:city.name}">
-                       {{city.name}}</option>
-                    </select>
-                  </div>
-                </CCol>
-              </CRow>
-              <CRow>
-                <CCol sm="4">
-                  <div class="form-group">
-                    <label for="">Kecamatan</label>
-                    <select class="form-control" v-model="district" @change="getsubdistrict">
-                      <option value="">Pilih</option>
-                      <option v-for="district in districts" v-bind:key="district.id" v-bind:value="{id:district.id,name:district.name}">
-                        {{district.name}}</option>
-                    </select>
-                  </div>
-                </CCol>
-                <!-- <CCol sm="4">
-                  <div class="form-group">
-                    <label for="">Desa/Kelurahan</label>
-                    <select class="form-control" v-model="village">
-                      <option value="">Pilih</option>
-                      <option v-for="village in villages" v-bind:key="village.id" v-bind:value="{id:village.id,name:village.name}">
-                        {{village.name}}</option>
-                    </select>
-                
-                  </div>
-                </CCol> -->
-                 <CCol sm="4">
-                  <CInput v-model="village" label="Desa/Kelurahan" type="text" placeholder="Desa/Kelurahan" />
-                </CCol>
-              </CRow>
 
-              <CRow>
-                <CCol col="6" class="text-left">
-                  <CButton type="submit" color="primary" class="px-4">submit</CButton>
-                </CCol>
-
-              </CRow>
-
+                  <div class="card">
+                    <div class="card-header">Pemeriksaan Dalam</div>
+                    <div class="card-body">
+                      <CRow>
+                        <CCol>
+                          <CTextarea type="text" label="Vulva" v-model="temp" />
+                        </CCol>
+                        <CCol>
+                          <CTextarea type="text" label="Persentasi" v-model="temp" />
+                        </CCol>
+                        <CCol>
+                          <CTextarea type="text" label="Molage" v-model="temp" />
+                        </CCol>
+                      </CRow>
+                      <CRow>
+                        <CCol>
+                          <CTextarea type="text" label="Keadaan Ketuban" v-model="temp" />
+                        </CCol>
+                        <CCol>
+                          <CTextarea type="text" label="bagian Terabah" v-model="temp" />
+                        </CCol>
+                        <CCol>
+                          <CTextarea type="text" label="Bagian Terendah Turun" v-model="temp" />
+                        </CCol>
+                      </CRow>
+                      <CRow>
+                        <CCol>
+                          <label for>Injeksi Tetanus</label>
+                          <div>
+                            <!-- <label class="typo__label">Single select</label> -->
+                            <multiselect v-model="value" :options="opUrinaria" :searchable="false"
+                              :close-on-select="false" :show-labels="false" placeholder="plih satu"></multiselect>
+                          </div>
+                        </CCol>
+                        <CCol>
+                          <CInput type="number" step="1" min="1" label="Pembukaan" v-model="temp" />
+                        </CCol>
+                      </CRow>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">Pemeriksaan Asessmen</div>
+                    <div class="card-body">
+                      <CTextarea label="Diagnosa" v-model="test" />
+                      <CTextarea label="Masalah Potensial" v-model="test" />
+                      <CTextarea label="Antisipasi Masalah" v-model="test" />
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header">Planning / Perencanaan</div>
+                    <div class="card-body">
+                      <CTextarea label="Perencanaan" v-model="test" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary">Submit</button>
             </form>
             <!-- <button v-on:click="tambahpasien"> button</button> -->
           </CCardBody>
@@ -104,8 +135,24 @@
 </template>
 
 <script>
-import Multiselect from 'multiselect'
+  import Multiselect from 'vue-multiselect'
   export default {
+    components: {
+      Multiselect
+    },
+    data() {
+      return {
+        value: [],
+        test: undefined,
+        opUrinaria: ['kosong', 'Penuh'],
+        temp: undefined,
+      }
+    },
+    methods: {
+      updateSoapI() {
+        console.log('update ya')
+      }
+    }
   }
 </script>
 

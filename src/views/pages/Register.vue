@@ -13,19 +13,22 @@
                     placeholder="User Name"
                     v-model="nama"
                     type="text"
+                    required
                   >
                     <template #prepend-content><CIcon name="cil-user"/></template>
                   </CInput>
                    <CInput
                     placeholder="NIK"
                     v-model="nik"
+                    required
                   >
                     <template #prepend-content><CIcon name="cil-user"/></template>
                   </CInput>
                   <CInput
                   placeholder="Nomor Kontak"
-                  type="text"
+                  type="number"
                   v-model="kontak.noHP"
+                  required
                 >
                   <template #prepend-content><CIcon name="cil-user"/></template>
                 </CInput>

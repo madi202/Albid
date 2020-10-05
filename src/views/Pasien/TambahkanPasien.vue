@@ -11,19 +11,19 @@
             <form @submit.prevent="tambahpasien">
               <CRow>
                 <CCol sm="6">
-                  <CInput v-model="nama" label="Nama Lengkap" placeholder="Enter your name" />
+                  <CInput v-model="nama" label="Nama Lengkap" placeholder="Enter your name" required was-validated description="Wajib Diisi" />
                 </CCol>
                 <CCol sm="6">
-                  <CInput v-model="tanggalLahir" label="Tanggal Lahir" type="date" placeholder="Enter your name" />
+                  <CInput v-model="tanggalLahir" label="Tanggal Lahir" type="date" placeholder="Enter your name" required was-validated description="Wajib Diisi" />
                 </CCol>
 
               </CRow>
               <CRow>
                 <CCol sm="6">
-                  <CInput v-model="nik" label="NIK" placeholder="NIK" />
+                  <CInput v-model="nik" label="NIK" placeholder="NIK" required was-validated description="Wajib Diisi"></CInput>
                 </CCol>
                 <CCol sm="6">
-                  <CInput v-model="kontak.noHP" label="Nomor Kontak" placeholder="Nomor Kontak" />
+                  <CInput v-model="kontak.noHP" label="Nomor Kontak" placeholder="Nomor Kontak" required was-validated description="Wajib Diisi" />
                 </CCol>
 
               </CRow>
@@ -83,7 +83,7 @@
                   </div>
                 </CCol> -->
                  <CCol sm="4">
-                  <CInput v-model="village" label="Desa/Kelurahan" type="text" placeholder="Desa/Kelurahan" />
+                  <CInput v-model="alamat.desa" label="Desa/Kelurahan" type="text" placeholder="Desa/Kelurahan" />
                 </CCol>
               </CRow>
 
@@ -134,10 +134,10 @@
         },
         pekerjaan: undefined,
         alamat: {
-          provinsi: this.provinces,
-          kota: this.city,
-          kecamatan: this.district,
-          kelurahan: this.villages,
+          provinsi: undefined,
+          kota: undefined,
+          kecamatan: undefined,
+          kelurahan: undefined,
           alamatJalan: undefined
         }
 
@@ -223,8 +223,7 @@
         }).then((response) => {
           let villages = response.data.data.results
           this.villages = villages //DATA kelurahan AKAN DISIMPAN KE DALAM VAR districts
-          console.log('masukl sonmo')
-          // console.log(subDistricts)
+         
           // console.log(this.district.id)
         })
       },
